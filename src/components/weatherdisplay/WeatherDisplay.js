@@ -24,6 +24,7 @@ const WeatherDisplay = () => {
 
   let dates = createArrayOfDates(new Date())
 
+
   useEffect(() => {
     if (weather === null) {
       return

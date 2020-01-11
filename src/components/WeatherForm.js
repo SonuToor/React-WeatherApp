@@ -2,7 +2,9 @@ import Button from './Button'
 import CityInput from './CityInput'
 import React, { useContext, useState } from 'react';
 import styled from "styled-components";
+import { createWeatherArrays } from "../utils";
 import { WeatherContext } from "../context/WeatherContext";
+
 
 
 const API_KEY = process.env.REACT_APP_WEATHERAPIKEY;
@@ -29,7 +31,12 @@ const WeatherForm = () => {
     fetch(API_URL)
       .then(res => res.json())
       .then(function(data) {
-        setWeather(data)        
+        let arrays = createWeatherArrays(data.list)
+         let weatherData = {
+           city: data.city.name,
+           weather: arrays
+         }
+        setWeather(data)
       })
     setCity("")
   }
