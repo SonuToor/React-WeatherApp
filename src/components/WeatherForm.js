@@ -31,12 +31,18 @@ const WeatherForm = () => {
     fetch(API_URL)
       .then(res => res.json())
       .then(function(data) {
-        let arrays = createWeatherArrays(data.list)
-         let weatherData = {
-           city: data.city.name,
-           weather: arrays
-         }
-        setWeather(data)
+        if (data.cod !== "200") {
+          return
+        }
+        else {
+          let arrays = createWeatherArrays(data.list)
+          let weatherData = {
+            city: data.city.name,
+            weather: arrays
+          }
+         setWeather(weatherData)
+         console.log(weatherData)
+        }
       })
     setCity("")
   }

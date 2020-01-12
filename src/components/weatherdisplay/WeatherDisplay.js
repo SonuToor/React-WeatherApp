@@ -29,12 +29,9 @@ const WeatherDisplay = () => {
     if (weather === null) {
       return
     }
-    else if (weather.cod !== "200") {
-      return
-    }
     else {
-      setCity(weather.city.name)
-      setForecast(weather.list)
+      setCity(weather.city)
+      setForecast(weather.weather)
     }
   }, [weather])
 
@@ -46,7 +43,7 @@ const WeatherDisplay = () => {
         null
         :
         dates.map((day, index) => 
-          <IndividualDay key={day} date={day} forecast={forecast[index * 8]}/>
+          <IndividualDay key={day} date={day} forecast={forecast[index]}/>
         )}
 
     </StyledContainer>

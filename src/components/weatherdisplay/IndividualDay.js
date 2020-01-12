@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import WeatherTile from "./WeatherTile";
 
 let DayContainer = styled.div`
   display: flex;
@@ -16,23 +17,14 @@ let DayContainer = styled.div`
 let DateTitle = styled.h3`
   font-weight: bold;
 `
-let TempString = styled.p`
-  color: rgb(116, 29, 223);
-`
 
 const IndividualDay = ({ date, forecast }) => {
-  let temp = `${forecast.main.temp}°C`
-  let weather = forecast.weather[0].icon
-  let weatherIcon = `http://openweathermap.org/img/w/${weather}.png`
   return (
     <DayContainer>
-      <DateTitle>
+       <DateTitle>
         {date}
       </DateTitle>
-      <TempString>
-        {temp}
-      </TempString>
-      <img src={weatherIcon} alt="weather image" />
+      {forecast.map(item => <WeatherTile data={item}/>)}
     </DayContainer>
   )
 }
