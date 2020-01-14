@@ -4,7 +4,6 @@ import styled from "styled-components";
 let StyledButton = styled.button`
   background-color: white;
   color: rgb(116, 29, 223);
-  flex: 1;
   border-radius: 0;
   margin-left: 25px;
   border: 2px solid transparent;
