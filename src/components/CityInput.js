@@ -5,7 +5,6 @@ import styled from "styled-components";
 let Input = styled.input`
   background-color: white;
   color: rgb(116, 29, 223);
-  flex: 3;
   padding-left: 15px;
   font-size: 24px;
   border: 2px solid #293858;

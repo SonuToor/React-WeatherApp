@@ -2,7 +2,9 @@ import Button from './Button'
 import CityInput from './CityInput'
 import React, { useContext, useState } from 'react';
 import styled from "styled-components";
+import { createWeatherArrays } from "../utils";
 import { WeatherContext } from "../context/WeatherContext";
+
 
 
 const API_KEY = process.env.REACT_APP_WEATHERAPIKEY;
@@ -10,9 +12,9 @@ const API_KEY = process.env.REACT_APP_WEATHERAPIKEY;
 let StyledForm = styled.form`
   display: flex;
   width: 50%;
-  margin-left: 25%;
+  margin-left: 68%;
   @media (max-width: 575px) {
-    flex-direction: column;
+    margin-left: 25%;
   }
 `
 
@@ -29,7 +31,18 @@ const WeatherForm = () => {
     fetch(API_URL)
       .then(res => res.json())
       .then(function(data) {
-        setWeather(data)        
+        if (data.cod !== "200") {
+          return
+        }
+        else {
+          let arrays = createWeatherArrays(data.list)
+          console.log(data)
+          let weatherData = {
+            city: data.city.name,
+            weather: arrays
+          }
+         setWeather(weatherData)
+        }
       })
     setCity("")
   }

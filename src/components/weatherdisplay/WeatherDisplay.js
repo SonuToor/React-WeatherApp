@@ -9,8 +9,12 @@ import { createArrayOfDates } from "../../utils";
 let StyledContainer = styled.div`
   display: flex;
   width: 80%;
+  border-radius: 10px;
+  background-color: rgb(201, 174, 234);
   margin-left: 10%;
   justify-content: center;
+  height: 60vh;
+  overflow-y: scroll;
   @media (max-width: 575px) {
     flex-direction: column;
     width: 100%;
@@ -24,16 +28,14 @@ const WeatherDisplay = () => {
 
   let dates = createArrayOfDates(new Date())
 
+
   useEffect(() => {
     if (weather === null) {
       return
     }
-    else if (weather.cod !== "200") {
-      return
-    }
     else {
-      setCity(weather.city.name)
-      setForecast(weather.list)
+      setCity(weather.city)
+      setForecast(weather.weather)
     }
   }, [weather])
 
@@ -45,7 +47,7 @@ const WeatherDisplay = () => {
         null
         :
         dates.map((day, index) => 
-          <IndividualDay key={day} date={day} forecast={forecast[index * 8]}/>
+          <IndividualDay key={day} date={day} forecast={forecast[index]}/>
         )}
 
     </StyledContainer>
