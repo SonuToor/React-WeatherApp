@@ -6,14 +6,14 @@ const StyledTile = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-
+  border-radius: 10px;
+  color: rgb(116, 29, 223);
   &:hover {
-    background-color: grey;
+    background-color: rgb(152, 87, 232);
+    color: white;
   }
 `
-const WeatherText = styled.p`
-  color: rgb(116, 29, 223)
-`
+
 
 const WeatherTile = ({ data }) => {
   let temp = `${data.main.temp}°C`
@@ -25,13 +25,9 @@ const WeatherTile = ({ data }) => {
   return (
       <StyledTile>
         <p>{timestamp}</p>
-        <WeatherText>
-          {temp}
-        </WeatherText>
+        <p>{temp}</p>
         <img src={iconSrc} alt="weather image"/>
-        <WeatherText>
-          {weather}
-        </WeatherText>
+        <p>{weather}</p>
       </StyledTile>    
     )
 }
