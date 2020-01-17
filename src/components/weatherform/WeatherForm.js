@@ -2,8 +2,8 @@ import Button from './Button'
 import CityInput from './CityInput'
 import React, { useContext, useState } from 'react';
 import styled from "styled-components";
-import { createWeatherArrays } from "../utils";
-import { WeatherContext } from "../context/WeatherContext";
+import { createWeatherArrays } from "../../utils";
+import { WeatherContext } from "../../context/WeatherContext";
 
 
 
@@ -11,8 +11,7 @@ const API_KEY = process.env.REACT_APP_WEATHERAPIKEY;
 
 let StyledForm = styled.form`
   display: flex;
-  width: 50%;
-  margin-left: 68%;
+  align-items: baseline;
   @media (max-width: 575px) {
     margin-left: 25%;
   }

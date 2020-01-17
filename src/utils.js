@@ -11,7 +11,7 @@ export const createArrayOfDates = (startDate) => {
         currentDate = moment(currentDate).add(1, "days");
     }
     return dateArray;
-  };
+};
 
 export const createWeatherArrays = (weather) => {
   let weatherArrays = [[]]
@@ -31,4 +31,12 @@ export const createWeatherArrays = (weather) => {
     }
   }
   return weatherArrays
-}
+};
+
+export const capitalizeString = (text) => {
+  return `${text.charAt(0).toUpperCase()}${text.slice(1)}`
+};
+
+export const militaryTimeToStandard = (time) => {
+  return moment(time, 'hh:mm').format('h:mm a')
+};

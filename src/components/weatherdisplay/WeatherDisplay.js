@@ -10,7 +10,6 @@ let StyledContainer = styled.div`
   display: flex;
   width: 80%;
   border-radius: 10px;
-  background-color: rgb(201, 174, 234);
   margin-left: 10%;
   justify-content: center;
   height: 60vh;
@@ -20,6 +19,7 @@ let StyledContainer = styled.div`
     width: 100%;
   }
 `
+
 
 const WeatherDisplay = () => {
   const [weather] = useContext(WeatherContext);

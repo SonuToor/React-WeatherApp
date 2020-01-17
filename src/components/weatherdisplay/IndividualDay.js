@@ -15,9 +15,12 @@ let DayContainer = styled.div`
 `
 let DateTitle = styled.h3`
   font-weight: bold;
-  position: sticky;
-  top: 0;
-  background-color: white;
+  position: fixed;
+  margin: 0;
+  width: 16%;
+  text-align: center;
+  color: white;
+  background-color: rgb(75, 10, 155);
 `
 
 // TO DO
