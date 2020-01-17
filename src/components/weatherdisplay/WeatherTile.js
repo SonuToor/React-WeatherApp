@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
 import { capitalizeString, militaryTimeToStandard } from "../../utils";
 
@@ -10,14 +10,15 @@ const StyledTile = styled.div`
   color: rgb(116, 29, 223);
   background-color: rgb(201, 174, 234);
   border: 0.5px solid white;
+  min-height: 220px;
   &:hover {
     background-color: rgb(152, 87, 232);
     color: white;
   }
 `
 const MainInfo = styled.div`
-  margin-top: 15%;
-  display: flex;
+  margin-top: 10%;
+  text-align: center;
 `
 
 
@@ -26,24 +27,23 @@ const WeatherTile = ({ data }) => {
   let time = militaryTimeToStandard(data["dt_txt"].slice(10, -3))
   let weather = capitalizeString(data.weather[0].description)
   let icon = data.weather[0].icon
+  const [showDetail, toggleShowDetails] = useState(false)
   let iconSrc = `http://openweathermap.org/img/w/${icon}.png`
 
   const showLess = () => {
-
-    console.log('less')
+    toggleShowDetails(false)
   }
   const showMore = () => {
-    // to do show more info
-    console.log('more')
+    toggleShowDetails(true)
   }
   return (
       <StyledTile onMouseEnter={showMore} onMouseLeave={showLess}>
         <MainInfo>
-          <p>{time}</p>
+          <h3>{time}</h3>
           <p>{temp}</p>
         </MainInfo>
         <img src={iconSrc} alt="weather image"/>
-        <p>{weather}</p>
+        {showDetail ? <p>{weather}</p> : null }
       </StyledTile>    
     )
 }

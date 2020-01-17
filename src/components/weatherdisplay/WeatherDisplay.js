@@ -12,7 +12,7 @@ let StyledContainer = styled.div`
   border-radius: 10px;
   margin-left: 10%;
   justify-content: center;
-  height: 60vh;
+  height: 55vh;
   overflow-y: scroll;
   @media (max-width: 575px) {
     flex-direction: column;
