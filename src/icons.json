@@ -1,49 +1,4 @@
-import moment from "moment";
-import "./"
-
-export const createArrayOfDates = (startDate) => {
-    var dateArray = [];
-    if (startDate === null) {
-      return dateArray;
-    }
-    var currentDate = moment(startDate);
-    for (let i = 0; i < 5; i++) {
-        dateArray.push(moment(currentDate).format("MMMM Do YYYY"));
-        currentDate = moment(currentDate).add(1, "days");
-    }
-    return dateArray;
-};
-
-export const createWeatherArrays = (weather) => {
-  let weatherArrays = [[]]
-  let day = 0;
-  let firstDay = +(weather[0]["dt_txt"].slice(8,10))
-
-  for (let i = 0; i < weather.length; i++) {
-    let currentDay = +(weather[i]["dt_txt"].slice(8,10))
-    if (currentDay === firstDay) {
-      weatherArrays[day].push(weather[i])
-    }
-    else {
-      day += 1
-      weatherArrays.push([])
-      weatherArrays[day].push(weather[i])
-      firstDay = currentDay
-    }
-  }
-  return weatherArrays
-};
-
-export const capitalizeString = (text) => {
-  return `${text.charAt(0).toUpperCase()}${text.slice(1)}`
-};
-
-export const militaryTimeToStandard = (time) => {
-  return moment(time, 'hh:mm').format('h:mm a')
-};
-
-
-const weatherIcons = {
+{
   "200": {
     "label": "thunderstorm with light rain",
     "icon": "storm-showers"
@@ -407,23 +362,5 @@ const weatherIcons = {
   "962": {
     "label": "hurricane",
     "icon": "cloudy-gusts"
-  }
-}
-
-export const returnIconClassName = (id, dayOrNight) => {
-  let icon = weatherIcons[id].icon
-  if (dayOrNight === 'd') {
-    var iconClassName = `wi wi-day-${icon}`;
-    return iconClassName
-
-  }
-  else if (dayOrNight === 'n') {
-    // the night version of the icon for id 800 isn't available in weatherIcons
-    if (id === 800) {
-      var iconClassName = "wi wi-night-clear"
-      return iconClassName
-    }
-    var iconClassName = `wi wi-night-${icon}`;
-    return iconClassName
   }
 }
