@@ -8,7 +8,8 @@ export const createArrayOfDates = (startDate) => {
     }
     var currentDate = moment(startDate);
     for (let i = 0; i < 5; i++) {
-        dateArray.push(moment(currentDate).format("MMMM Do YYYY"));
+        let date = moment(currentDate).format("MMMM Do YYYY").slice(0, -4)
+        dateArray.push(date);
         currentDate = moment(currentDate).add(1, "days");
     }
     return dateArray;

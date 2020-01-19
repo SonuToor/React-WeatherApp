@@ -15,8 +15,9 @@ let StyledContainer = styled.div`
   height: 55vh;
   overflow-y: scroll;
   @media (max-width: 575px) {
-    flex-direction: column;
+    margin: 0;
     width: 100%;
+    height: 60vh;
   }
 `
 

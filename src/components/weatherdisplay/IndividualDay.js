@@ -8,10 +8,6 @@ let DayContainer = styled.div`
   width: 20%;
   align-items: center;
   justify-content: flex-start;
-  @media (max-width: 575px) {
-    width: 75%;
-  }
-
 `
 let DateTitle = styled.h3`
   font-weight: bold;
@@ -21,12 +17,11 @@ let DateTitle = styled.h3`
   text-align: center;
   color: white;
   background-color: rgb(75, 10, 155);
+  @media (max-width: 575px) {
+    width: 20%;
+  }
+
 `
-
-// TO DO
-  // 8 entries is a lot there's not enough room, in a column, to display all 8 weather entries
-  // maybe choose only 4, but how to determine which ones to choose programatically? 
-
 const IndividualDay = ({ date, forecast }) => {
   return (
     <DayContainer>

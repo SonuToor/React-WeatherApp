@@ -13,7 +13,9 @@ let StyledForm = styled.form`
   display: flex;
   align-items: baseline;
   @media (max-width: 575px) {
-    margin-left: 25%;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 16%;
   }
 `
 
