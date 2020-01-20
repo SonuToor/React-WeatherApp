@@ -37,7 +37,6 @@ const WeatherForm = () => {
         }
         else {
           let arrays = createWeatherArrays(data.list)
-          console.log(data)
           let weatherData = {
             city: data.city.name,
             weather: arrays
