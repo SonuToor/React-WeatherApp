@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import WeatherForm from "./WeatherForm"
+import WeatherForm from "./weatherform/WeatherForm"
 
 
 let StyledHeader = styled.header`
+  display: flex;
+  justify-content: flex-end;
   text-align: center;
   background-color: rgb(116, 29, 223);
   color: #f7bc13;

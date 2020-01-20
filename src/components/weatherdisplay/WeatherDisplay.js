@@ -10,16 +10,17 @@ let StyledContainer = styled.div`
   display: flex;
   width: 80%;
   border-radius: 10px;
-  background-color: rgb(201, 174, 234);
   margin-left: 10%;
   justify-content: center;
-  height: 60vh;
+  height: 55vh;
   overflow-y: scroll;
   @media (max-width: 575px) {
-    flex-direction: column;
+    margin: 0;
     width: 100%;
+    height: 60vh;
   }
 `
+
 
 const WeatherDisplay = () => {
   const [weather] = useContext(WeatherContext);

@@ -6,6 +6,7 @@ let Input = styled.input`
   background-color: white;
   color: rgb(116, 29, 223);
   padding-left: 15px;
+  height: 100%;
   font-size: 24px;
   border: 2px solid #293858;
   @media (max-width: 575px) {

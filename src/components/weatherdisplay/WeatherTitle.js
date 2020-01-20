@@ -14,7 +14,7 @@ const WeatherTitle = ({ city }) => {
       {
         city ? `5 Day Forecast for ${city}`
         :
-        `Input A City To Begin!`
+        `Input A City!`
       }
     </Title>
   )
